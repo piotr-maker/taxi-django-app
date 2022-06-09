@@ -3,6 +3,123 @@ info:
   title: ''
   version: ''
 paths:
+  /api/orders/:
+    get:
+      operationId: listOrders
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createOrders
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api
+  /api/orders/{order_id}/:
+    get:
+      operationId: retrieveOrder
+      description: ''
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateOrder
+      description: ''
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateOrder
+      description: ''
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyOrder
+      description: ''
+      parameters:
+      - name: order_id
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
   /api/users/:
     get:
       operationId: listCustomUsers
@@ -26,12 +143,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/UserCreate'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UserCreate'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/UserCreate'
       responses:
@@ -66,12 +177,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/User'
       responses:
         '200':
           content:
@@ -88,12 +193,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/User'
       responses:
@@ -122,7 +221,7 @@ paths:
       - name: id
         in: path
         required: true
-        description: A unique integer value identifying this user.
+        description: "A unique integer value identifying this u\u017Cytkownik."
         schema:
           type: string
       responses:
@@ -141,18 +240,12 @@ paths:
       - name: id
         in: path
         required: true
-        description: A unique integer value identifying this user.
+        description: "A unique integer value identifying this u\u017Cytkownik."
         schema:
           type: string
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/User'
       responses:
@@ -171,18 +264,12 @@ paths:
       - name: id
         in: path
         required: true
-        description: A unique integer value identifying this user.
+        description: "A unique integer value identifying this u\u017Cytkownik."
         schema:
           type: string
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/User'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/User'
       responses:
@@ -201,7 +288,7 @@ paths:
       - name: id
         in: path
         required: true
-        description: A unique integer value identifying this user.
+        description: "A unique integer value identifying this u\u017Cytkownik."
         schema:
           type: string
       responses:
@@ -217,12 +304,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/Activation'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/Activation'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/Activation'
       responses:
@@ -244,12 +325,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SendEmailReset'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/SendEmailReset'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/SendEmailReset'
       responses:
         '201':
           content:
@@ -267,12 +342,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/SendEmailReset'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/SendEmailReset'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/SendEmailReset'
       responses:
@@ -294,12 +363,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PasswordResetConfirm'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/PasswordResetConfirm'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/PasswordResetConfirm'
       responses:
         '201':
           content:
@@ -317,12 +380,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/SendEmailReset'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/SendEmailReset'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/SendEmailReset'
       responses:
@@ -344,12 +401,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UsernameResetConfirm'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/UsernameResetConfirm'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/UsernameResetConfirm'
       responses:
         '201':
           content:
@@ -367,12 +418,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/SetPassword'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/SetPassword'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/SetPassword'
       responses:
@@ -394,12 +439,6 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/SetUsername'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/SetUsername'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/SetUsername'
       responses:
         '201':
           content:
@@ -417,12 +456,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: '#/components/schemas/TokenCreate'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/TokenCreate'
-          multipart/form-data:
             schema:
               $ref: '#/components/schemas/TokenCreate'
       responses:
@@ -443,10 +476,6 @@ paths:
         content:
           application/json:
             schema: {}
-          application/x-www-form-urlencoded:
-            schema: {}
-          multipart/form-data:
-            schema: {}
       responses:
         '201':
           content:
@@ -457,6 +486,93 @@ paths:
       - api
 components:
   schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        order_from:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            longitude:
+              type: string
+              format: decimal
+              multipleOf: 1.0e-06
+              maximum: 1000
+              minimum: -1000
+            latitude:
+              type: string
+              format: decimal
+              multipleOf: 1.0e-06
+              maximum: 1000
+              minimum: -1000
+            altitude:
+              type: string
+              format: decimal
+              multipleOf: 1.0e-06
+              maximum: 1000
+              minimum: -1000
+          required:
+          - longitude
+          - latitude
+          - altitude
+        order_to:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            longitude:
+              type: string
+              format: decimal
+              multipleOf: 1.0e-06
+              maximum: 1000
+              minimum: -1000
+            latitude:
+              type: string
+              format: decimal
+              multipleOf: 1.0e-06
+              maximum: 1000
+              minimum: -1000
+            altitude:
+              type: string
+              format: decimal
+              multipleOf: 1.0e-06
+              maximum: 1000
+              minimum: -1000
+          required:
+          - longitude
+          - latitude
+          - altitude
+        status:
+          enum:
+          - NE
+          - PR
+          - CA
+          - CL
+          type: string
+        cost:
+          type: string
+          format: decimal
+          multipleOf: 0.01
+          maximum: 10000
+          minimum: -10000
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - order_from
+      - order_to
+      - cost
     User:
       type: object
       properties:

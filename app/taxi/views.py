@@ -1,3 +1,25 @@
-from django.shortcuts import render
+from .models import Orders
+from .serializers import OrderSerializer
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+from django.http import Http404
 
-# Create your views here.
+
+class OrderList(generics.ListCreateAPIView):
+    serializer_class = OrderSerializer
+    queryset = Orders.objects.all()
+    permission_classes = [IsAuthenticated]
+
+
+class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        order_id = self.kwargs.get('order_id')
+        user_id = self.kwargs.get('user_id')
+        print(user_id)
+        if not Orders.objects.filter(id=order_id):
+            raise Http404()
+
+        return Orders.objects.filter(id.order_id)
