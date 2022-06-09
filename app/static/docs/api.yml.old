@@ -542,7 +542,7 @@ components:
     Token:
       type: "apiKey"
       in: "header"
-      name: "Authorization"
+      name: "Authentication"
 
   schemas:
     Location:
