@@ -17,8 +17,7 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         order_id = self.kwargs.get('order_id')
-        user_id = self.kwargs.get('user_id')
-        print(user_id)
+        print(self.request.user.id)
         if not Orders.objects.filter(id=order_id):
             raise Http404()
 

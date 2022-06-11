@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
-  title: ''
-  version: ''
+  title: 'Taxi app'
+  version: '1.0.0'
 servers:
   - url: "http://localhost:8000/api"
     description: "Local server"
@@ -630,6 +630,8 @@ components:
         last_name:
           type: string
           maxLength: 150
+        is_driver:
+          type: boolean
         date_joined:
           type: string
           format: date-time
@@ -640,6 +642,7 @@ components:
       - login
       - first_name
       - last_name
+      - is_driver
     UserCreate:
       type: object
       properties:

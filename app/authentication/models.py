@@ -105,6 +105,7 @@ class CustomUser(AbstractBaseUser,  PermissionsMixin):
         default=False,
         help_text=_('Designates whether the user can log into this staff site.'),
     )
+    is_driver = models.BooleanField(default=False)
     is_active = models.BooleanField(
         _('active'),
         default=True,
@@ -120,7 +121,7 @@ class CustomUser(AbstractBaseUser,  PermissionsMixin):
 
     EMAIL_FIELD = 'email'
     USERNAME_FIELD = 'login'
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'password']
+    REQUIRED_FIELDS = ['email', 'first_name', 'is_driver', 'last_name', 'password']
 
     class Meta:
         verbose_name = _('user')
