@@ -3,6 +3,7 @@ info:
   title: 'Taxi app'
   version: '1.0.0'
 servers:
+  - url: "https://itsolutions.hopto.org/api"
   - url: "http://localhost:8000/api"
     description: "Local server"
 tags:
