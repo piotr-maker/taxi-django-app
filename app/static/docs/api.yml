@@ -1,12 +1,7 @@
 openapi: 3.0.2
 info:
-<<<<<<< HEAD
   title: 'Taxi app'
   version: '1.0.0'
-=======
-  title: ''
-  version: ''
->>>>>>> 1c5dc47d18d9caf0f80d58c250ed17c91b4c09b4
 servers:
   - url: "http://localhost:8000/api"
     description: "Local server"
@@ -547,11 +542,7 @@ components:
     Token:
       type: "apiKey"
       in: "header"
-<<<<<<< HEAD
       name: "Authorization"
-=======
-      name: "Authentication"
->>>>>>> 1c5dc47d18d9caf0f80d58c250ed17c91b4c09b4
 
   schemas:
     Location:
