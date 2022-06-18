@@ -29,6 +29,7 @@ class OrderList(generics.ListCreateAPIView):
 
 class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = OrderSerializer
+    lookup_field = 'id'
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -37,4 +38,4 @@ class OrderDetail(generics.RetrieveUpdateDestroyAPIView):
         if not Orders.objects.filter(id=order_id):
             raise Http404()
 
-        return Orders.objects.filter(id.order_id)
+        return Orders.objects.filter(id=order_id)
