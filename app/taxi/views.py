@@ -19,10 +19,11 @@ class OrderList(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
+        print(user.id)
         if user.is_driver:
-            orders = Orders.objects.filter(passenger_id=user.id)
-        else:
             orders = Orders.objects.filter(driver_id=user.id)
+        else:
+            orders = Orders.objects.filter(passenger_id=user.id)
         return orders
 
 
