@@ -591,6 +591,7 @@ components:
           - CA
           - CL
           type: string
+          readOnly: true
         cost:
           type: string
           format: decimal
@@ -608,7 +609,6 @@ components:
       required:
       - order_from
       - order_to
-      - cost
     User:
       type: object
       properties:

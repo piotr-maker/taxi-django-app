@@ -16,8 +16,8 @@ class Orders(models.Model):
         ('CL', 'Closed'),
     ]
 
-    passenger = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='+', on_delete=models.CASCADE)
-    driver = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='+', on_delete=models.CASCADE, null=True)
+    passenger = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='+', on_delete=models.CASCADE)
+    driver = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='+', on_delete=models.CASCADE, null=True)
     order_from = models.ForeignKey(Locations, related_name='+', on_delete=models.CASCADE)
     order_to = models.ForeignKey(Locations, related_name='+', on_delete=models.CASCADE)
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default='NE')

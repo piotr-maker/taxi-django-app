@@ -16,9 +16,10 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Orders
         fields = ['id', 'order_from', 'order_to', 'status', 'cost', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'status', 'created_at', 'updated_at']
 
     def create(self, validated_data):
+        passenger = validated_data.pop('passenger')
         loc = validated_data.pop('order_from')
         loc_from = Locations(longitude=loc['longitude'], latitude=loc['latitude'], altitude=loc['altitude'])
         loc_from.save()
@@ -29,7 +30,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
         status = validated_data.pop('status')
         cost = validated_data.pop('cost')
-        order = Orders(order_from=loc_from, order_to=loc_to, status=status, cost=cost)
+        order = Orders(passenger=passenger, order_from=loc_from, order_to=loc_to, status=status, cost=cost)
         order.save()
         return order
 
